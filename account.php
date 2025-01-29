@@ -9,7 +9,7 @@ $upswd2 = $_POST['repassword2'];
 
 
 
-if (!empty($dbusername2) || !empty($email2) || !empty($name2) || !empty($password2) || !empty($repassword2))
+if (!empty($username2) || !empty($email2) || !empty($name2) || !empty($password2) || !empty($repassword2))
 {
 
 $host = "localhost";
@@ -20,15 +20,15 @@ $dbname = "login";
 
 
 // Create connection
-$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+$conn = new mysqli ($host, $username, $password, $name);
 
 if (mysqli_connect_error()){
   die('Connect Error ('. mysqli_connect_errno() .') '
     . mysqli_connect_error());
 }
 else{
-  $SELECT = "SELECT email From register account Where email = ? Limit 1";
-  $INSERT = "INSERT Into register account (username2 , email2 ,name2, password2, repassword )values(?,?,?,?)";
+  $SELECT = "SELECT email2 From register account Where email2 = ? Limit 1";
+  $INSERT = "INSERT Into register account (username2 , email2 ,name2, password2, repassword2 )values(?,?,?,?)";
 
 //Prepare statement
      $stmt = $conn->prepare($SELECT);
